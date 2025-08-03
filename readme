@@ -32,5 +32,5 @@ Scenariusz: Pomyślna Rejestracja Nowego Klienta
 WYMAGANIA I UWAGI DO URUCHOMIENIA TESTU:
 - Java 17
 - ChromeDriver 138.0.7204.183 dla przeglądarki Chrome Wersja 138.0.7204.168
-
+- Test nalezy uruchomić z pliku RegistrationTest.java znajdującego się w src/test/java/scenarios
 
