@@ -5,9 +5,12 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import utils.WaitManager;
 
 @Slf4j
 public class RegistrationPage extends BasePage {
+
+    private WaitManager waitManager;
 
     @FindBy(xpath = "//header[@data-catalog ='masterpage']")
     private WebElement header;
@@ -29,11 +32,12 @@ public class RegistrationPage extends BasePage {
 
     public RegistrationPage(WebDriver driver) {
         super(driver);
+        this.waitManager = new WaitManager(driver);
     }
 
     public boolean isPageLoaded() {
         try {
-            if (header.isDisplayed()) {
+            if (waitManager.waitForElementToBeVisible(header).isDisplayed()) {
                 log.info("Strona rejestracji została załadowana.");
                 return true;
             }
@@ -46,27 +50,27 @@ public class RegistrationPage extends BasePage {
     }
 
     public void fillEmail(String email) {
-        emailInput.sendKeys(email);
+        waitManager.waitForElementToBeVisible(emailInput).sendKeys(email);
         log.info("Uzupełnienie e-maila: {}", email);
     }
 
     public void fillPassword(String password) {
-        passwordInput.sendKeys(password);
+        waitManager.waitForElementToBeVisible(passwordInput).sendKeys(password);
         log.info("Uzupełnienie hasła.");
     }
 
     public void repeatPassword(String password) {
-        repeatPasswordInput.sendKeys(password);
+        waitManager.waitForElementToBeVisible(repeatPasswordInput).sendKeys(password);
         log.info("Powtórzenie hasła.");
     }
 
     public void confirmStatute() {
-        statuteCheckbox.click();
+        waitManager.waitForElementToBeClickable(statuteCheckbox).click();
         log.info("Zaznaczenie checkboxa potwierdzającego zapoznanie się z regulaminem");
     }
 
     public void submitRegistration() {
-        submitRegistrationButton.click();
+        waitManager.waitForElementToBeClickable(submitRegistrationButton).click();
         log.info("Kliknięcie przycisku rejestracji");
     }
 }
