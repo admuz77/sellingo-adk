@@ -1,0 +1,36 @@
+Projekt jest rozwiązaniem zadania rekrutacyjnego na stanowisko testera automatyzującego.
+
+Cel Testu
+
+Celem tego testu jest sprawdzenie czy proces rejestracji nowego konta klienta w sklepie demo.sellingo.pl przebiega poprawnie.
+
+Założenia
+
+    Dostęp do stabilnej instancji sklepu demo.sellingo.pl/rejestracja.
+    Środowisko testowe z zainstalowanym Selenium WebDriver oraz odpowiednim językiem programowania (np. Python, Java, C#) i bibliotekami do asercji.
+    Dostępne unikalne dane testowe dla każdej próby rejestracji, w szczególności adres e-mail i login.
+
+Scenariusz: Pomyślna Rejestracja Nowego Klienta
+
+    Otwórz przeglądarkę i przejdź do strony rejestracji:
+        Nawiguj do https://demo.sellingo.pl/rejestracja.
+        Oczekiwane zachowanie: Strona rejestracji ładuje się poprawnie.
+    Uzupełnij formularz rejestracyjny poprawnymi danymi:
+        Wprowadź unikalny adres e-mail w polu "E-mail".
+        Wprowadź hasło zgodne z polityką sklepu w polu "Hasło".
+        Wprowadź to samo hasło w polu "Powtórz hasło".
+        Zaznacz checkbox "Tak, oświadczam, że zapoznałem się z regulaminem i akceptuję jego warunki".
+        Zapisz użyte dane (e-mail/login, hasło) do dalszej weryfikacji.
+    Potwierdź rejestrację:
+        Kliknij przycisk "Zarejestruj się".
+    Weryfikacja pomyślnej rejestracji:
+        System przekierowuje na stronę główną z komunikatem o pomyślnej rejestracji (“Dziękujemy, zostałeś automatycznie zalogowany na swoje konto.”) i automatycznie loguje użytkownika do panelu klienta.
+    Wylogowanie:
+        Jeśli system automatycznie zalogował użytkownika, znajdź i kliknij przycisk "Wyloguj" i wyloguj się z zalogowanego konta.
+
+
+WYMAGANIA I UWAGI DO URUCHOMIENIA TESTU:
+- Java 17
+- ChromeDriver 138.0.7204.183 dla przeglądarki Chrome Wersja 138.0.7204.168
+
+
